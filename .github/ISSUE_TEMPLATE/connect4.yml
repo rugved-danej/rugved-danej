@@ -1,0 +1,27 @@
+name: "Connect Four Game 🎮"
+description: "Make a move or reset the game!"
+title: "Connect Four Move"
+labels: ["connect-four"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🎮 Connect Four Action!
+        Select the column where you want to drop your disc.
+        
+        *The GitHub Actions bot will automatically read your selection, update the board, and close this issue in a few seconds!*
+  - type: dropdown
+    id: move
+    attributes:
+      label: "Select your move"
+      options:
+        - "Drop in Column 1"
+        - "Drop in Column 2"
+        - "Drop in Column 3"
+        - "Drop in Column 4"
+        - "Drop in Column 5"
+        - "Drop in Column 6"
+        - "Drop in Column 7"
+        - "Reset Game"
+    validations:
+      required: true

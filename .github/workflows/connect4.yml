@@ -1,0 +1,62 @@
+name: Connect Four Game Move
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  play:
+    if: contains(github.event.issue.labels.*.name, 'connect-four') || startsWith(github.event.issue.title, 'Connect Four Move') || startsWith(github.event.issue.title, 'c4|')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Process Move
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          USER="${{ github.event.issue.user.login }}"
+          
+          # First, try to parse from the title for backwards compatibility
+          if [[ "$ISSUE_TITLE" == c4\|* ]]; then
+            ACTION=$(echo "$ISSUE_TITLE" | cut -d'|' -f2-)
+          else
+            # Otherwise, parse from the body dropdown
+            ACTION=$(echo "$ISSUE_BODY" | python3 game/parse_issue.py)
+          fi
+          
+          if [ "$ACTION" != "invalid" ]; then
+            python3 game/play.py "$ACTION" "$USER"
+          else
+            echo "Invalid move format in issue."
+            exit 1
+          fi
+
+      - name: Commit and Push Board State
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md game/connect4.json
+          git commit -m "game: move by @${{ github.event.issue.user.login }}" || exit 0
+          git pull --rebase origin main
+          git push
+
+      - name: Close Issue With Confirmation
+        if: success()
+        uses: peter-evans/close-issue@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment: "Thanks @${{ github.event.issue.user.login }}! Your move has been played and the board has been updated on the profile README."
