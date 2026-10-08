@@ -34,7 +34,7 @@
 
 ## 🎮 Community Connect Four
 
-**Current Turn:** 🔴 **Red** &nbsp; | &nbsp; **Last Move By:** <a href="https://github.com/rugved-danej">**@rugved-danej**</a> &nbsp; | &nbsp; **Moves:** 0
+**Current Turn:** 🟡 **Yellow** &nbsp; | &nbsp; **Last Move By:** <a href="https://github.com/rugved-danej">**@rugved-danej**</a> &nbsp; | &nbsp; **Moves:** 1
 
 | [1️⃣](https://github.com/rugved-danej/rugved-danej/issues/new?template=connect4.yml&title=Connect+Four+Move&move=Drop+in+Column+1) | [2️⃣](https://github.com/rugved-danej/rugved-danej/issues/new?template=connect4.yml&title=Connect+Four+Move&move=Drop+in+Column+2) | [3️⃣](https://github.com/rugved-danej/rugved-danej/issues/new?template=connect4.yml&title=Connect+Four+Move&move=Drop+in+Column+3) | [4️⃣](https://github.com/rugved-danej/rugved-danej/issues/new?template=connect4.yml&title=Connect+Four+Move&move=Drop+in+Column+4) | [5️⃣](https://github.com/rugved-danej/rugved-danej/issues/new?template=connect4.yml&title=Connect+Four+Move&move=Drop+in+Column+5) | [6️⃣](https://github.com/rugved-danej/rugved-danej/issues/new?template=connect4.yml&title=Connect+Four+Move&move=Drop+in+Column+6) | [7️⃣](https://github.com/rugved-danej/rugved-danej/issues/new?template=connect4.yml&title=Connect+Four+Move&move=Drop+in+Column+7) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -43,7 +43,7 @@
 | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
 | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
 | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
-| ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
+| ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | 🔴 |
 
 <i>Click any number above to drop your disc! The board updates automatically.</i>
 
